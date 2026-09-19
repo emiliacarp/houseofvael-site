@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>House of Vael</title>
+<meta name="description" content="House of Vael — Italian cashmere. The First Collection, Winter MMXXVI. By appointment.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="assets/favicon.png">
+</head>
+<body>
+
+<!-- SPLASH — the sealed envelope. Plays once, then lifts. -->
+<div id="splash" aria-hidden="true">
+  <video id="splash-video" playsinline muted autoplay preload="auto" poster="assets/splash-poster.jpg">
+    <source src="assets/splash.mp4" type="video/mp4">
+  </video>
+  <button id="splash-skip" type="button">Enter</button>
+</div>
+
+<header class="nav">
+  <button class="nav-menu" aria-label="Menu"><span></span><span></span></button>
+  <a class="nav-logo" href="#top" aria-label="House of Vael"><img src="assets/lockup-ivory.svg" alt="VAEL"></a>
+  <a class="nav-appt" href="#register">By appointment</a>
+</header>
+
+<nav id="menu" class="menu" aria-hidden="true">
+  <button class="menu-close" aria-label="Close">×</button>
+  <ul>
+    <li><a href="#house">The House</a></li>
+    <li><a href="#world">The World</a></li>
+    <li><a href="#fibre">The Fibre</a></li>
+    <li><a href="#inside">Inside the House</a></li>
+    <li><a href="#register">By appointment</a></li>
+  </ul>
+  <p class="menu-foot">Cashmere · Italia</p>
+</nav>
+
+<main id="top">
+
+  <!-- HERO — the film -->
+  <section class="hero">
+    <video class="hero-video" playsinline muted autoplay loop preload="auto" poster="assets/hero-poster.jpg">
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-copy">
+      <p class="kicker">Winter MMXXVI</p>
+      <h1>The First Collection</h1>
+      <a class="cta" href="#register">– By appointment –</a>
+    </div>
+  </section>
+
+  <!-- THE HOUSE -->
+  <section id="house" class="house">
+    <div class="house-text">
+      <p class="kicker">The House</p>
+      <h2>Cashmere. Italia.</h2>
+      <p>House of Vael is a new Italian house built on an old idea: that the finest fibre in the world deserves the fewest words.</p>
+      <p>Our cashmere is chosen for the length and fineness of its fibre, spun and knitted in Italy by hands that have done nothing else for generations, and finished in colours taken from the places the House belongs to — the snow at Saint-Moritz, the stone of Milan, the water at Como.</p>
+      <p>Nothing is loud. Everything is felt.</p>
+    </div>
+    <figure class="house-figure">
+      <img src="assets/still-tailor.jpg" alt="">
+      <figcaption>The Atelier</figcaption>
+    </figure>
+  </section>
+
+  <!-- THE WORLD — three places -->
+  <section id="world" class="world">
+    <p class="kicker centered">The World</p>
+    <div class="world-grid">
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-stmoritz.jpg" alt=""></div><p class="kicker">Winter</p><h3>Saint-Moritz</h3><span class="cta">– Discover –</span></a>
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-milano.jpg" alt=""></div><p class="kicker">The City</p><h3>Milano</h3><span class="cta">– Discover –</span></a>
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-como.jpg" alt=""></div><p class="kicker">The Lake</p><h3>Como</h3><span class="cta">– Discover –</span></a>
+    </div>
+  </section>
+
+  <!-- THE FIBRE — film + text -->
+  <section id="fibre" class="fibre">
+    <video class="fibre-video" playsinline muted autoplay loop preload="metadata" poster="assets/fibre-poster.jpg">
+      <source src="assets/fibre.mp4" type="video/mp4">
+    </video>
+    <div class="fibre-copy">
+      <p class="kicker">The Fibre</p>
+      <h2>Chosen, not gathered.</h2>
+      <p>Cashmere is the underdown a goat grows against a winter at four thousand metres. A single animal gives less than two hundred grams a year. We take only the longest and finest of it, and we know which plateau it came from.</p>
+      <a class="cta" href="#register">– Book a private appointment –</a>
+    </div>
+  </section>
+
+  <!-- INSIDE THE HOUSE — three stories -->
+  <section id="inside" class="inside">
+    <p class="kicker centered">Inside the House</p>
+    <div class="inside-grid">
+      <article class="story"><img src="assets/still-chalet.jpg" alt=""><h3>The Winter Room</h3><p>A library above the lake, a fire, and the first pieces of the collection laid on the chair.</p></article>
+      <article class="story"><img src="assets/still-polo.jpg" alt=""><h3>Snow Polo, Saint-Moritz</h3><p>The House will be present on the frozen lake in January. Details by invitation.</p></article>
+      <article class="story"><img src="assets/still-goats.jpg" alt=""><h3>The Plateau</h3><p>Where the fibre begins: the herds, the herders, and a winter that decides everything.</p></article>
+    </div>
+  </section>
+
+  <!-- REGISTER — by appointment -->
+  <section id="register" class="register">
+    <img class="register-mark" src="assets/mark-ink.svg" alt="">
+    <p class="kicker">The First Collection · Winter MMXXVI</p>
+    <h2>By appointment.</h2>
+    <p>Leave your name. The House will write to you.</p>
+    <form class="register-form" action="mailto:appointments@houseofvael.com" method="post" enctype="text/plain">
+      <input type="email" name="email" placeholder="Your e-mail" required>
+      <button type="submit">Request</button>
+    </form>
+    <p class="register-note">Milano · Saint-Moritz · Monaco</p>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <img src="assets/lockup-ink.svg" alt="House of Vael" class="foot-logo">
+  <p>Cashmere · Italia</p>
+  <p class="foot-links"><a href="#">Instagram</a> · <a href="mailto:appointments@houseofvael.com">Contact</a> · <a href="#">Privacy</a></p>
+  <p class="foot-legal">© MMXXVI House of Vael. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
