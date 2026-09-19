@@ -3,7 +3,7 @@
   const splash = document.getElementById('splash');
   const sv = document.getElementById('splash-video');
   const skip = document.getElementById('splash-skip');
-  const seen = (() => { try { return sessionStorage.getItem('vael-splash') === '1'; } catch (e) { return false; } })();
+  const seen = new URLSearchParams(location.search).has('enter') || (() => { try { return sessionStorage.getItem('vael-splash') === '1'; } catch (e) { return false; } })();
   const lift = () => {
     if (!splash || splash.classList.contains('lift')) return;
     splash.classList.add('lift'); try { sessionStorage.setItem('vael-splash', '1'); } catch (e) {}
