@@ -8,14 +8,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cinzel:wght@400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="assets/favicon.png">
+<meta name="theme-color" content="#0B0B0C">
+<meta property="og:title" content="House of Vael"><meta property="og:description" content="Italian cashmere. The First Collection, Winter MMXXVI. By appointment."><meta property="og:type" content="website"><meta property="og:image" content="assets/og.jpg"><meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="assets/splash-poster.jpg">
+<link rel="icon" href="assets/favicon.png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 </head>
 <body>
 
 <!-- SPLASH — the sealed envelope. Plays once, then lifts. -->
 <div id="splash" aria-hidden="true">
   <video id="splash-video" playsinline muted autoplay preload="auto" poster="assets/splash-poster.jpg">
-    <source src="assets/splash.mp4" type="video/mp4">
+    <source data-hd="assets/splash.mp4" data-sd="assets/splash-720.mp4" type="video/mp4">
   </video>
   <button id="splash-skip" type="button">Enter</button>
 </div>
@@ -43,7 +46,7 @@
   <!-- HERO — the film -->
   <section class="hero">
     <video class="hero-video" playsinline muted autoplay loop preload="auto" poster="assets/hero-poster.jpg">
-      <source src="assets/hero.mp4" type="video/mp4">
+      <source data-hd="assets/hero.mp4" data-sd="assets/hero-720.mp4" type="video/mp4">
     </video>
     <div class="hero-copy">
       <p class="kicker">Winter MMXXVI</p>
@@ -62,7 +65,7 @@
       <p>Nothing is loud. Everything is felt.</p>
     </div>
     <figure class="house-figure">
-      <img src="assets/still-tailor.jpg" alt="">
+      <img src="assets/still-tailor.jpg" width="864" height="1080" loading="lazy" decoding="async" alt="">
       <figcaption>The Atelier</figcaption>
     </figure>
   </section>
@@ -71,16 +74,16 @@
   <section id="world" class="world">
     <p class="kicker centered">The World</p>
     <div class="world-grid">
-      <a class="card" href="#register"><div class="card-media"><img src="assets/still-stmoritz.jpg" alt=""></div><p class="kicker">Winter</p><h3>Saint-Moritz</h3><span class="cta">– Discover –</span></a>
-      <a class="card" href="#register"><div class="card-media"><img src="assets/still-milano.jpg" alt=""></div><p class="kicker">The City</p><h3>Milano</h3><span class="cta">– Discover –</span></a>
-      <a class="card" href="#register"><div class="card-media"><img src="assets/still-como.jpg" alt=""></div><p class="kicker">The Lake</p><h3>Como</h3><span class="cta">– Discover –</span></a>
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-stmoritz.jpg" width="810" height="1080" loading="lazy" decoding="async" alt=""></div><p class="kicker">Winter</p><h3>Saint-Moritz</h3><span class="cta">– Discover –</span></a>
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-milano.jpg" width="810" height="1080" loading="lazy" decoding="async" alt=""></div><p class="kicker">The City</p><h3>Milano</h3><span class="cta">– Discover –</span></a>
+      <a class="card" href="#register"><div class="card-media"><img src="assets/still-como.jpg" width="810" height="1080" loading="lazy" decoding="async" alt=""></div><p class="kicker">The Lake</p><h3>Como</h3><span class="cta">– Discover –</span></a>
     </div>
   </section>
 
   <!-- THE FIBRE — film + text -->
   <section id="fibre" class="fibre">
     <video class="fibre-video" playsinline muted autoplay loop preload="metadata" poster="assets/fibre-poster.jpg">
-      <source src="assets/fibre.mp4" type="video/mp4">
+      <source data-hd="assets/fibre.mp4" data-sd="assets/fibre-720.mp4" type="video/mp4">
     </video>
     <div class="fibre-copy">
       <p class="kicker">The Fibre</p>
@@ -94,9 +97,9 @@
   <section id="inside" class="inside">
     <p class="kicker centered">Inside the House</p>
     <div class="inside-grid">
-      <article class="story"><img src="assets/still-chalet.jpg" alt=""><h3>The Winter Room</h3><p>A library above the lake, a fire, and the first pieces of the collection laid on the chair.</p></article>
-      <article class="story"><img src="assets/still-polo.jpg" alt=""><h3>Snow Polo, Saint-Moritz</h3><p>The House will be present on the frozen lake in January. Details by invitation.</p></article>
-      <article class="story"><img src="assets/still-goats.jpg" alt=""><h3>The Plateau</h3><p>Where the fibre begins: the herds, the herders, and a winter that decides everything.</p></article>
+      <article class="story"><img src="assets/still-chalet.jpg" width="1440" height="1080" loading="lazy" decoding="async" alt=""><h3>The Winter Room</h3><p>A library above the lake, a fire, and the first pieces of the collection laid on the chair.</p></article>
+      <article class="story"><img src="assets/still-polo.jpg" width="1440" height="1080" loading="lazy" decoding="async" alt=""><h3>Snow Polo, Saint-Moritz</h3><p>The House will be present on the frozen lake in January. Details by invitation.</p></article>
+      <article class="story"><img src="assets/still-goats.jpg" width="1440" height="1080" loading="lazy" decoding="async" alt=""><h3>The Plateau</h3><p>Where the fibre begins: the herds, the herders, and a winter that decides everything.</p></article>
     </div>
   </section>
 

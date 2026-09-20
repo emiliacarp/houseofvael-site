@@ -1,5 +1,9 @@
 // House of Vael — splash, menu, reveal
 (function () {
+  // pick the video size for the screen BEFORE anything loads: phones get the 720p files, everything else 1080p
+  const sd = Math.min(screen.width, screen.height) * (devicePixelRatio || 1) < 1100 || (navigator.connection && navigator.connection.saveData);
+  document.querySelectorAll('video source[data-hd]').forEach(src => { src.src = sd ? src.dataset.sd : src.dataset.hd; src.parentNode.load(); });
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const splash = document.getElementById('splash');
   const sv = document.getElementById('splash-video');
   const skip = document.getElementById('splash-skip');
@@ -10,7 +14,7 @@
     setTimeout(() => splash.remove(), 1600);
     const hv = document.querySelector('.hero-video'); if (hv) hv.play().catch(() => {});
   };
-  if (seen) { splash && splash.remove(); }
+  if (seen || reduce) { splash && splash.remove(); }
   else if (sv) {
     sv.addEventListener('ended', lift);
     sv.addEventListener('error', lift);
