@@ -11,29 +11,18 @@
   const lift = () => {
     if (!splash || splash.classList.contains('lift')) return;
     splash.classList.add('lift'); try { sessionStorage.setItem('vael-splash', '1'); } catch (e) {}
-    setTimeout(() => splash.remove(), 1600);
-    const hv = document.querySelector('.hero-video'); if (hv) hv.play().catch(() => {});
+    setTimeout(() => splash.remove(), 2400);
+    const hv = document.querySelector('.hero-video'); if (hv) { hv.classList.add('on'); hv.play().catch(() => {}); }
   };
-  if (seen || reduce) { splash && splash.remove(); }
+  if (seen || reduce) { splash && splash.remove(); const hv = document.querySelector('.hero-video'); if (hv) hv.classList.add('on'); }
   else if (sv) {
     sv.addEventListener('ended', lift);
     sv.addEventListener('error', lift);
-    // sound: try WITH audio first; browsers refuse that until the page has been touched → fall back to muted and
-    // unmute on the first touch/key. A sound toggle sits bottom-left either way.
-    const sound = document.getElementById('splash-sound'); const setMuted = m => { sv.muted = m; splash.classList.toggle('muted', m); };
-    const unmute = () => { if (sv.muted) { setMuted(false); sv.play().catch(() => {}); } };
-    sv.muted = false;
-    sv.play().then(() => setMuted(false)).catch(() => {
-      setMuted(true);
-      sv.play().catch(() => {                       // even muted play refused (backgrounded) → retry when visible, else straight in
-        const again = () => { if (sv.paused) sv.play().catch(() => {}); };
-        document.addEventListener('visibilitychange', again); window.addEventListener('pointerdown', again, { once: true });
-        setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
-      });
-      const first = e => { if (e.target !== sound && e.target.parentNode !== sound) unmute(); };
-      window.addEventListener('pointerdown', first, { once: true }); window.addEventListener('keydown', first, { once: true });
+    sv.play().catch(() => {                        // muted play refused (backgrounded) → retry when visible, else straight in
+      const again = () => { if (sv.paused) sv.play().catch(() => {}); };
+      document.addEventListener('visibilitychange', again); window.addEventListener('pointerdown', again, { once: true });
+      setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
     });
-    sound && sound.addEventListener('click', e => { e.stopPropagation(); setMuted(!sv.muted); if (!sv.muted) sv.play().catch(() => {}); });
     setTimeout(() => splash.classList.add('ready'), 2500);
     setTimeout(lift, 16000);                      // safety
     skip && skip.addEventListener('click', lift);
@@ -44,6 +33,19 @@
   const resume = () => loops.forEach(v => { if (v.paused) v.play().catch(() => {}); });
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') resume(); });
   window.addEventListener('pointerdown', resume, { once: true });
+
+  // SITE AUDIO — one ambient bed under the whole page (splash included), off with one click, remembered for the session.
+  // Browsers refuse audio before the first touch: we try at once, and otherwise start on the first pointer/key.
+  const au = document.getElementById('site-audio'); const sb = document.querySelector('.nav-sound');
+  let off = (() => { try { return sessionStorage.getItem('vael-sound') === 'off'; } catch (e) { return false; } })();
+  const fadeTo = (v, ms) => { const from = au.volume, t0 = performance.now(); const step = t => { const k = Math.min(1, (t - t0) / ms); au.volume = from + (v - from) * k; if (k < 1) requestAnimationFrame(step); else if (v === 0) au.pause(); }; requestAnimationFrame(step); };
+  const start = () => { if (off || !au.paused) return; au.volume = 0; au.play().then(() => fadeTo(1, 2500)).catch(() => {}); };
+  const paint = () => sb && sb.setAttribute('aria-pressed', off ? 'true' : 'false');
+  paint(); start();
+  const firstTouch = e => { if (!(sb && sb.contains(e.target))) start(); };
+  window.addEventListener('pointerdown', firstTouch); window.addEventListener('keydown', firstTouch);
+  sb && sb.addEventListener('click', () => { off = !off; try { sessionStorage.setItem('vael-sound', off ? 'off' : 'on'); } catch (e) {} paint(); if (off) fadeTo(0, 900); else start(); });
+  document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible' && !off && au.paused) start(); });
 
   // menu
   const menu = document.getElementById('menu');

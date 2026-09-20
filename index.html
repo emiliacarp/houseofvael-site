@@ -17,18 +17,21 @@
 
 <!-- SPLASH — the sealed envelope. Plays once, then lifts. -->
 <div id="splash" aria-hidden="true">
-  <video id="splash-video" playsinline autoplay preload="auto" poster="assets/splash-poster.jpg">
+  <video id="splash-video" playsinline muted autoplay preload="auto" poster="assets/splash-poster.jpg">
     <source data-hd="assets/splash.mp4" data-sd="assets/splash-720.mp4" type="video/mp4">
   </video>
-  <button id="splash-sound" type="button" aria-label="Sound"><span class="on">Sound on</span><span class="off">Sound off</span></button>
   <button id="splash-skip" type="button">Enter</button>
 </div>
 
 <header class="nav">
   <button class="nav-menu" aria-label="Menu"><span></span><span></span></button>
   <a class="nav-logo" href="#top" aria-label="House of Vael"><img src="assets/lockup-ivory.svg" alt="VAEL"></a>
-  <a class="nav-appt" href="#register">By appointment</a>
+  <div class="nav-right">
+    <button class="nav-sound" type="button" aria-label="Sound" aria-pressed="false"><span class="on">Sound on</span><span class="off">Sound off</span></button>
+    <a class="nav-appt" href="#register">By appointment</a>
+  </div>
 </header>
+<audio id="site-audio" loop preload="auto" src="assets/site-bed.mp3"></audio>
 
 <nav id="menu" class="menu" aria-hidden="true">
   <button class="menu-close" aria-label="Close">×</button>
