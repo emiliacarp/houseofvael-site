@@ -24,7 +24,7 @@
       setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
     });
     setTimeout(() => splash.classList.add('ready'), 2500);
-    setTimeout(lift, 16000);                      // safety
+    setTimeout(lift, 18000);                      // safety
     skip && skip.addEventListener('click', lift);
   }
 
