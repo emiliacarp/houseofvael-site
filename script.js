@@ -18,12 +18,22 @@
   else if (sv) {
     sv.addEventListener('ended', lift);
     sv.addEventListener('error', lift);
-    const tryPlay = () => sv.play().catch(() => {   // blocked/backgrounded → retry when visible, else straight in
-      const again = () => { if (sv.paused) sv.play().catch(() => {}); };
-      document.addEventListener('visibilitychange', again); window.addEventListener('pointerdown', again, { once: true });
-      setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
+    // sound: try WITH audio first; browsers refuse that until the page has been touched → fall back to muted and
+    // unmute on the first touch/key. A sound toggle sits bottom-left either way.
+    const sound = document.getElementById('splash-sound'); const setMuted = m => { sv.muted = m; splash.classList.toggle('muted', m); };
+    const unmute = () => { if (sv.muted) { setMuted(false); sv.play().catch(() => {}); } };
+    sv.muted = false;
+    sv.play().then(() => setMuted(false)).catch(() => {
+      setMuted(true);
+      sv.play().catch(() => {                       // even muted play refused (backgrounded) → retry when visible, else straight in
+        const again = () => { if (sv.paused) sv.play().catch(() => {}); };
+        document.addEventListener('visibilitychange', again); window.addEventListener('pointerdown', again, { once: true });
+        setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
+      });
+      const first = e => { if (e.target !== sound && e.target.parentNode !== sound) unmute(); };
+      window.addEventListener('pointerdown', first, { once: true }); window.addEventListener('keydown', first, { once: true });
     });
-    tryPlay();
+    sound && sound.addEventListener('click', e => { e.stopPropagation(); setMuted(!sv.muted); if (!sv.muted) sv.play().catch(() => {}); });
     setTimeout(() => splash.classList.add('ready'), 2500);
     setTimeout(lift, 16000);                      // safety
     skip && skip.addEventListener('click', lift);
