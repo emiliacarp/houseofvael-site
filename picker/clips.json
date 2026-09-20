@@ -1,0 +1,121 @@
+[
+ {
+  "id": "open",
+  "label": "The envelope opens",
+  "note": "OpenArt \u00b7 Kling 2.6 \u00b7 IN USE (splash)",
+  "dur": 10.0,
+  "src": "openart/open-kling26.mp4"
+ },
+ {
+  "id": "palace",
+  "label": "Palace at blue hour, Saint-Moritz",
+  "note": "OpenArt \u00b7 IN USE (splash + hero)",
+  "dur": 10.0,
+  "src": "openart/w-palace.mp4"
+ },
+ {
+  "id": "riva",
+  "label": "Riva on Lake Como, golden hour",
+  "note": "OpenArt \u00b7 IN USE (splash + hero)",
+  "dur": 10.0,
+  "src": "openart/w-como2.mp4"
+ },
+ {
+  "id": "polo",
+  "label": "Snow polo in the mist",
+  "note": "OpenArt \u00b7 IN USE (splash)",
+  "dur": 10.0,
+  "src": "openart/w-polo.mp4"
+ },
+ {
+  "id": "galleria",
+  "label": "The Galleria, tailored man + Bentley",
+  "note": "OpenArt \u00b7 IN USE (splash + hero)",
+  "dur": 10.0,
+  "src": "openart/w-arcade2.mp4"
+ },
+ {
+  "id": "peaks",
+  "label": "Peaks above the cloud",
+  "note": "Lambda \u00b7 IN USE (hero)",
+  "dur": 4.1,
+  "src": "plates-hd/w10-peaks-cloud.mp4"
+ },
+ {
+  "id": "jetty",
+  "label": "Woman in cashmere on the jetty",
+  "note": "Lambda \u00b7 IN USE (hero)",
+  "dur": 4.1,
+  "src": "plates-hd/w09-jetty-fog.mp4"
+ },
+ {
+  "id": "galleria1",
+  "label": "The Galleria, man in camel + hat",
+  "note": "OpenArt \u00b7 replaced",
+  "dur": 10.0,
+  "src": "openart/w-arcade.mp4"
+ },
+ {
+  "id": "boathouse",
+  "label": "Como boathouse in mist",
+  "note": "OpenArt \u00b7 replaced",
+  "dur": 10.0,
+  "src": "openart/w-como.mp4"
+ },
+ {
+  "id": "palace1",
+  "label": "Palace, snow (first version)",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w01-palace-snow.mp4"
+ },
+ {
+  "id": "larches",
+  "label": "Engadin larches",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w02-engadin-larches.mp4"
+ },
+ {
+  "id": "arcade1",
+  "label": "Milan arcade (first version)",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w03-milan-arcade.mp4"
+ },
+ {
+  "id": "chalet",
+  "label": "Chalet, the fire",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w04-chalet-fire.mp4"
+ },
+ {
+  "id": "polo1",
+  "label": "Snow polo (first version)",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w05-polo-mist.mp4"
+ },
+ {
+  "id": "boathouse1",
+  "label": "Como boathouse (first version)",
+  "note": "Lambda",
+  "dur": 4.1,
+  "src": "plates-hd/w06-como-boathouse.mp4"
+ },
+ {
+  "id": "tailor",
+  "label": "The tailor's hands",
+  "note": "Lambda \u00b7 IN USE (still)",
+  "dur": 4.1,
+  "src": "plates-hd/w08-tailor-hands.mp4"
+ },
+ {
+  "id": "goats",
+  "label": "Cashmere goats on the plateau",
+  "note": "Lambda \u00b7 IN USE (still)",
+  "dur": 4.1,
+  "src": "plates-hd/w12-goats-plateau.mp4"
+ }
+]
