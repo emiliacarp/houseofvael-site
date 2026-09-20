@@ -31,7 +31,7 @@
       document.addEventListener('visibilitychange', again); window.addEventListener('pointerdown', again, { once: true });
       setTimeout(() => { if (sv.paused && sv.currentTime === 0) lift(); }, 4000);
     });
-    setTimeout(() => splash.classList.add('ready'), 2500); setTimeout(lift, 32000); skip && skip.addEventListener('click', lift);
+    setTimeout(() => splash.classList.add('ready'), 2500); setTimeout(lift, 40000); skip && skip.addEventListener('click', lift);
   };
   const enter = () => { gate && gate.classList.add('lift'); setTimeout(() => gate && gate.remove(), 1400); if (seen || reduce) { splash && splash.remove(); if (hv) hv.classList.add('on'); } else runSplash(); };
 
